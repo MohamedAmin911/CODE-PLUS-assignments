@@ -1,35 +1,38 @@
 void main() {
-  // const: compile-time constant
-  const String schoolName = "Future University";
+  //task 1
+  execute(() {
+    print("Hello Dart!");
+  });
 
-  // final: value assigned once at runtime
-  final int studentId = 2026001;
+  //task 2
+  print(square(5));
+  print(greet("Alice"));
+  print(isEven(4));
 
-  // Variables with appropriate data types
-  String studentName = "Mohamed Amin";
-  int age = 23;
-  double gpa = 3.85;
-  bool isGraduated = false;
+  //task 3
+  // Addition
+  calculate(10, 5, (x, y) => x + y);
 
-  // Nullable variables
-  String? email = null;
-  String? phoneNumber = "01012345678";
+  // Subtraction
+  calculate(10, 5, (x, y) => x - y);
 
-  print("===== Student Information =====");
-  print("School: $schoolName");
-  print("Student ID: $studentId");
-  print("Name: $studentName");
-  print("Age: $age");
-  print("GPA: $gpa");
-  print("Graduated: $isGraduated");
+  // Multiplication
+  calculate(10, 5, (x, y) => x * y);
+}
 
-  // Null-aware operators
-  print("Email: ${email ?? "Not Provided"}");
-  print("Phone: ${phoneNumber ?? "Not Provided"}");
+//task 1
+void execute(Function callback) {
+  callback();
+}
 
-  // Null-aware assignment operator
-  email ??= "student@example.com";
+//task 2
+int square(int number) => number * number;
 
-  print("\nAfter updating email:");
-  print("Email: $email");
+String greet(String name) => "Hello $name";
+
+bool isEven(int number) => number % 2 == 0;
+
+//task 3
+void calculate(int a, int b, int Function(int, int) callback) {
+  print("Result: ${callback(a, b)}");
 }
